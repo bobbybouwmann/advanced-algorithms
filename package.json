@@ -1,0 +1,14 @@
+{
+  "name": "partitions",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Thomas Kooi & Bobby Bouwmann",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^2.3.3"
+  }
+}
