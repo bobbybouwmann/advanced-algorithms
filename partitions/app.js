@@ -15,6 +15,8 @@ function getPartitions(number) {
 
     var possibilies = [];
     for (var i = number; i > 0; i--) {
+        // loop over every possible combination (number - i + 1)
+        // Excluding any dublicates ( j <= i )
         for (var j = 1; j < number-i+1 && j <= i; j++) {
             // Starting point of each combination is always i
             var entry = [i, j];
@@ -28,4 +30,8 @@ function getPartitions(number) {
     return possibilies;
 }
 
+/*
+    Prints:
+
+*/
 console.log(getPartitions(5));
