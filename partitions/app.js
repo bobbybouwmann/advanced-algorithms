@@ -8,12 +8,13 @@
 //  5: 2 + 1 + 1 +1
 //  5: 2 + 3
 //  5: 1 + 1 + 1 + 1 + 1
+
 function getPartitions(number) {
     if (number == 1) {
-        return 1;
+        return [1];
     }
 
-    var possibilies = [];
+    var possibilies = [[number]];
     for (var i = number; i > 0; i--) {
         // loop over every possible combination (number - i + 1)
         // Excluding any dublicates ( j <= i )
@@ -27,11 +28,12 @@ function getPartitions(number) {
             possibilies.push(entry);
         }
     }
+
     return possibilies;
 }
 
-/*
-    Prints:
-
-*/
-console.log(getPartitions(5));
+module.exports = function() {
+    return {
+        partition: getPartitions
+    }
+}
