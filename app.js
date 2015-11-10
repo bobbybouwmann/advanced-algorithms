@@ -8,10 +8,9 @@
 //  5: 2 + 1 + 1 +1
 //  5: 2 + 3
 //  5: 1 + 1 + 1 + 1 + 1
-
 function getPartitions(number) {
     if (number == 1) {
-        return [1];
+        return [[1]];
     }
 
     var possibilies = [[number]];
@@ -19,21 +18,38 @@ function getPartitions(number) {
         // loop over every possible combination (number - i + 1)
         // Excluding any dublicates ( j <= i )
         for (var j = 1; j < number-i+1 && j <= i; j++) {
-            // Starting point of each combination is always i
-            var entry = [i, j];
 
-            while (entry.reduce(function(a, b){return a+b;}) != number) {
-                entry.push(1);
+            if (i + j != number && (number - i -j) >= j) {
+                var remaining = getPartitions(number - i -j); // break up the remaining into partitions and append those to our entry
+                remaining.forEach(function(element) {
+                    var entry = [i, j]; // Starting point of each combination is always i followed by the value of j
+                    // Add the remaining partitions to our entries
+                    element.forEach(function(part) {
+                        entry.push(part);
+                    })
+                    possibilies.push(entry);
+                });
+            } else {
+                possibilies.push([i, j]); // Starting point of each combination is always i followed by the value of j
             }
-            possibilies.push(entry);
         }
     }
-
     return possibilies;
 }
+
+/*
+    Prints:
+
+*/
 
 module.exports = function() {
     return {
         partition: getPartitions
     }
 }
+
+console.log(getPartitions(1));
+console.log(getPartitions(2));
+console.log(getPartitions(5));
+console.log(getPartitions(7));
+console.log(getPartitions(12));
