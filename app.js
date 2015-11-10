@@ -38,19 +38,8 @@ function getPartitions(number) {
     return possibilies;
 }
 
-/*
-    Prints:
-
-*/
-
 module.exports = function() {
     return {
         partition: getPartitions
     }
 }
-
-console.log(getPartitions(1));
-console.log(getPartitions(2));
-console.log(getPartitions(5));
-console.log(getPartitions(7));
-console.log(getPartitions(12));
