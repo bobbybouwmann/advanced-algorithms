@@ -18,8 +18,7 @@ function getPartitions(number) {
         // loop over every possible combination (number - i + 1)
         // Excluding any dublicates ( j <= i )
         for (var j = 1; j < number-i+1 && j <= i; j++) {
-
-            if (i + j != number && (number - i -j) >= j) {
+            if (i + j != number) {
                 var remaining = getPartitions(number - i -j); // break up the remaining into partitions and append those to our entry
                 remaining.forEach(function(element) {
                     var entry = [i, j]; // Starting point of each combination is always i followed by the value of j
@@ -27,7 +26,9 @@ function getPartitions(number) {
                     element.forEach(function(part) {
                         entry.push(part);
                     })
-                    possibilies.push(entry);
+                    if (entry[2] <= entry[1]) {
+                        possibilies.push(entry);
+                    }
                 });
             } else {
                 possibilies.push([i, j]); // Starting point of each combination is always i followed by the value of j
