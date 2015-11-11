@@ -23,4 +23,34 @@ describe('Partition', function() {
         assert.deepEqual(partition.partition(12), [[12], [11, 1], [10, 1, 1], [10, 2], [9, 1, 1, 1], [9, 2, 1], [9, 3], [8, 1, 1, 1, 1], [8, 2, 2], [8, 2, 1, 1], [8, 3, 1], [8, 4], [7, 1, 1, 1, 1, 1], [7, 2, 2, 1], [7, 2, 1, 1, 1], [7, 3, 2], [7, 3, 1, 1], [7, 4, 1], [7, 5], [6, 1, 1, 1, 1, 1, 1], [6, 2, 2, 1, 1], [6, 2, 2, 2], [6, 2, 1, 1, 1, 1], [6, 3, 3], [6, 3, 2, 1], [6, 3, 1, 1, 1], [6, 4, 2], [6, 4, 1, 1], [6, 5, 1], [6, 6], [5, 1, 1, 1, 1, 1, 1, 1], [5, 2, 2, 1, 1, 1], [5, 2, 2, 2, 1], [5, 2, 1, 1, 1, 1, 1], [5, 3, 3, 1], [5, 3, 2, 1, 1], [5, 3, 2, 2], [5, 3, 1, 1, 1, 1], [5, 4, 3], [5, 4, 2, 1], [5, 4, 1, 1, 1], [5, 5, 2], [5, 5, 1, 1], [4, 1, 1, 1, 1, 1, 1, 1, 1], [4, 2, 2, 1, 1, 1, 1], [4, 2, 2, 2, 2], [4, 2, 2, 2, 1, 1], [4, 2, 1, 1, 1, 1, 1, 1], [4, 3, 3, 1, 1], [4, 3, 3, 2], [4, 3, 2, 1, 1, 1], [4, 3, 2, 2, 1], [4, 3, 1, 1, 1, 1, 1], [4, 4, 4], [4, 4, 3, 1], [4, 4, 2, 1, 1], [4, 4, 2, 2], [4, 4, 1, 1, 1, 1], [3, 1, 1, 1, 1, 1, 1, 1, 1, 1], [3, 2, 2, 1, 1, 1, 1, 1], [3, 2, 2, 2, 2, 1], [3, 2, 2, 2, 1, 1, 1], [3, 2, 1, 1, 1, 1, 1, 1, 1], [3, 3, 3, 1, 1, 1], [3, 3, 3, 2, 1], [3, 3, 3, 3], [3, 3, 2, 1, 1, 1, 1], [3, 3, 2, 2, 2], [3, 3, 2, 2, 1, 1], [3, 3, 1, 1, 1, 1, 1, 1], [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [2, 2, 2, 1, 1, 1, 1, 1, 1], [2, 2, 2, 2, 2, 1, 1], [2, 2, 2, 2, 2, 2], [2, 2, 2, 2, 1, 1, 1, 1], [2, 2, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]);
     });
 
+    it('sum #partition(2)', function() {
+        var number = 2;
+        var parts = partition.partition(number);
+        parts.forEach(function(part) {
+            assert.equal(number, part.reduce(function(a, b){return a+b;}));
+        });
+    });
+    it('sum #partition(6)', function() {
+        var number = 6;
+        var parts = partition.partition(number);
+        parts.forEach(function(part) {
+            assert.equal(number, part.reduce(function(a, b){return a+b;}));
+        });
+    });
+
+    it('sum #partition(9)', function() {
+        var number = 9;
+        var parts = partition.partition(number);
+        parts.forEach(function(part) {
+            assert.equal(number, part.reduce(function(a, b){return a+b;}));
+        });
+    });
+
+    it('sum #partition(12)', function() {
+        var number = 12;
+        var parts = partition.partition(number);
+        parts.forEach(function(part) {
+            assert.equal(number, part.reduce(function(a, b){return a+b;}));
+        });
+    });
 });
