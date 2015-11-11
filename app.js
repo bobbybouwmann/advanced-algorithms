@@ -1,40 +1,37 @@
-// for each number,
-// find the possible combinations that can be found
-// ie
-//  5: 4 + 1
-//  5: 3 + 1 + 1
-//  5: 3 + 2
-//  5: 2 + 1 + 2
-//  5: 2 + 1 + 1 +1
-//  5: 2 + 3
-//  5: 1 + 1 + 1 + 1 + 1
 function getPartitions(number) {
-    if (number == 1) {
-        return [[1]];
-    }
-
+    // Start with the first number, we always have this one
     var possibilies = [[number]];
-    for (var i = number; i > 0; i--) {
+
+    for (var i = number; i > 0 && number > 1; i--) {
+
         // loop over every possible combination (number - i + 1)
         // Excluding any dublicates ( j <= i )
-        for (var j = 1; j < number-i+1 && j <= i; j++) {
+        for (var j = 1; j < number - i + 1 && j <= i; j++) {
             if (i + j != number) {
-                var remaining = getPartitions(number - i -j); // break up the remaining into partitions and append those to our entry
+                // break up the remaining into partitions
+                var remaining = getPartitions(number - i - j);
+
+                // append the remaining partitions to the entry
                 remaining.forEach(function(element) {
-                    var entry = [i, j]; // Starting point of each combination is always i followed by the value of j
+                    // Starting point of each combination is always i followed by the value of j
+                    var entry = [i, j];
+
                     // Add the remaining partitions to our entries
                     element.forEach(function(part) {
                         entry.push(part);
-                    })
+                    });
+
                     if (entry[2] <= entry[1]) {
                         possibilies.push(entry);
                     }
                 });
             } else {
-                possibilies.push([i, j]); // Starting point of each combination is always i followed by the value of j
+                // Starting point of each combination is always i followed by the value of j
+                possibilies.push([i, j]);
             }
         }
     }
+
     return possibilies;
 }
 
