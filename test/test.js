@@ -28,15 +28,15 @@ describe('Partition', function() {
     });
 
     it('#checkSumOfEachPartition(6)', function() {
-        checkEachPartition(6);
+        checkSumOfEachPartition(6);
     });
 
     it('#checkSumOfEachPartition(9)', function() {
-        checkEachPartition(9);
+        checkSumOfEachPartition(9);
     });
 
     it('#checkSumOfEachPartition(12)', function() {
-        checkEachPartition(12);
+        checkSumOfEachPartition(12);
     });
 
 });
