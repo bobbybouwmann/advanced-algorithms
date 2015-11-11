@@ -25,14 +25,14 @@ describe('Partition', function() {
 
     it('sum #partition(2)', function() {
         var number = 2;
-        var parts = getPartitions(number);
+        var parts = partition.partition(number);
         parts.forEach(function(part) {
             assert.equal(number, part.reduce(function(a, b){return a+b;}));
         });
     });
     it('sum #partition(6)', function() {
         var number = 6;
-        var parts = getPartitions(number);
+        var parts = partition.partition(number);
         parts.forEach(function(part) {
             assert.equal(number, part.reduce(function(a, b){return a+b;}));
         });
@@ -40,7 +40,7 @@ describe('Partition', function() {
 
     it('sum #partition(9)', function() {
         var number = 9;
-        var parts = getPartitions(number);
+        var parts = partition.partition(number);
         parts.forEach(function(part) {
             assert.equal(number, part.reduce(function(a, b){return a+b;}));
         });
@@ -48,7 +48,7 @@ describe('Partition', function() {
 
     it('sum #partition(12)', function() {
         var number = 12;
-        var parts = getPartitions(number);
+        var parts = partition.partition(number);
         parts.forEach(function(part) {
             assert.equal(number, part.reduce(function(a, b){return a+b;}));
         });
